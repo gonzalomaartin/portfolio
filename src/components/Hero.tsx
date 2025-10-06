@@ -8,9 +8,9 @@ export const Hero = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto animate-fade-in">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center max-w-7xl mx-auto animate-fade-in">
           {/* Name and Title - Left side */}
-          <div className="space-y-6 order-2 lg:order-1">
+          <div className="space-y-6">
             <div className="space-y-2">
               <p className="text-sm md:text-base text-muted-foreground tracking-wider">
                 Hi, I'm Your Name
@@ -57,15 +57,15 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Avatar - Right side */}
-          <div className="flex justify-center lg:justify-start order-1 lg:order-2">
+          {/* Avatar - Right side (integrated, no extra space) */}
+          <div className="hidden lg:flex justify-end">
             <div className="relative group">
-              <div className="absolute -inset-4 border-l-2 border-t-2 border-border opacity-50" />
-              <div className="absolute -inset-4 border-r-2 border-b-2 border-border opacity-50" />
+              <div className="absolute -inset-3 border-l-2 border-t-2 border-border opacity-40" />
+              <div className="absolute -inset-3 border-r-2 border-b-2 border-border opacity-40" />
               <img
                 src={profileAvatar}
                 alt="Profile"
-                className="relative w-72 h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem] object-cover transition-smooth"
+                className="relative w-64 h-80 xl:w-72 xl:h-96 object-cover transition-smooth"
               />
             </div>
           </div>

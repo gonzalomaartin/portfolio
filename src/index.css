@@ -6,58 +6,58 @@
 
 @layer base {
   :root {
-    /* Dark modern theme - Black background with yellow accents */
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
+    /* Light professional theme - Clean and modern */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
 
     /* Card styling */
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
 
     /* Popover */
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
-    /* Primary - Bright yellow accent */
-    --primary: 48 100% 65%;
-    --primary-foreground: 0 0% 10%;
-    --primary-hover: 48 100% 70%;
+    /* Primary - Professional blue accent */
+    --primary: 215 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 215 85% 60%;
 
-    /* Secondary - Dark gray */
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary - Light gray */
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 10%;
 
-    /* Accent - Yellow for CTAs */
-    --accent: 48 100% 65%;
-    --accent-foreground: 0 0% 10%;
-    --accent-hover: 48 100% 70%;
+    /* Accent - Vibrant blue for CTAs */
+    --accent: 215 85% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 215 85% 60%;
 
     /* Muted */
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
 
     /* Destructive */
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders and inputs */
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 48 100% 65%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 215 85% 55%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(48 100% 65%), hsl(48 95% 55%));
-    --gradient-accent: linear-gradient(135deg, hsl(48 100% 65%), hsl(48 95% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 7%), hsl(0 0% 10%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 10%), hsl(0 0% 12%));
+    --gradient-primary: linear-gradient(135deg, hsl(215 85% 55%), hsl(215 85% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(215 85% 55%), hsl(215 75% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 96%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(215 20% 98%));
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5);
-    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.6);
-    --shadow-glow: 0 8px 32px hsl(48 100% 65% / 0.4);
-    --shadow-accent: 0 8px 32px hsl(48 100% 65% / 0.3);
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.08);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.15);
+    --shadow-glow: 0 8px 32px hsl(215 85% 55% / 0.25);
+    --shadow-accent: 0 8px 32px hsl(215 85% 55% / 0.2);
 
     /* Border radius */
     --radius: 0.5rem;
