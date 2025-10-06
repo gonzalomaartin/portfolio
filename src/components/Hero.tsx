@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, ArrowDown } from "lucide-react";
 import { Button } from "./ui/button";
 import heroBackground from "@/assets/hero-bg.jpg";
 import profileAvatar from "@/assets/profile-avatar.jpg";
@@ -18,12 +18,13 @@ export const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 py-20">
         <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
           {/* Avatar */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-accent/20 rounded-full blur-2xl" />
+          <div className="relative group">
+            <div className="absolute inset-0 bg-primary rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-smooth" />
+            <div className="absolute inset-0 bg-accent rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-smooth" />
             <img
               src={profileAvatar}
               alt="Profile"
-              className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-accent/50 shadow-xl"
+              className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-primary/30 shadow-glow group-hover:scale-105 transition-smooth"
             />
           </div>
 
@@ -60,11 +61,6 @@ export const Hero = () => {
             <Button asChild size="icon" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button asChild size="icon" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent">
-              <a href="mailto:your.email@example.com" aria-label="Email">
-                <Mail className="w-5 h-5" />
               </a>
             </Button>
           </div>
