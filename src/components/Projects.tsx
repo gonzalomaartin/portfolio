@@ -2,6 +2,13 @@ import { ExternalLink, Github } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Badge } from "./ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
 
 const projects = [
   {
@@ -55,71 +62,84 @@ export const Projects = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
-            <Card
-              key={project.title}
-              className="group border-border shadow-lg hover:shadow-accent transition-smooth hover:-translate-y-2 animate-slide-up flex flex-col bg-gradient-to-br from-card to-secondary/30 relative overflow-hidden"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-card opacity-0 group-hover:opacity-100 transition-smooth pointer-events-none" />
-              
-              <CardHeader className="relative z-10">
-                <div className="flex items-start justify-between mb-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
-                    <div className="w-6 h-6 bg-primary-foreground/90 rounded" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-smooth">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-              </CardHeader>
-
-              <CardContent className="flex-1 relative z-10">
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge 
-                      key={tech} 
-                      variant="secondary" 
-                      className="bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-smooth"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-
-              <CardFooter className="gap-3 relative z-10">
-                <Button asChild variant="default" size="sm" className="flex-1 shadow-md hover:shadow-lg">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
+        {/* Projects Carousel */}
+        <div className="max-w-5xl mx-auto">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {projects.map((project, index) => (
+                <CarouselItem key={project.title} className="pl-4 md:basis-1/2 lg:basis-1/2">
+                  <Card
+                    className="group border-border shadow-lg hover:shadow-accent transition-smooth hover:-translate-y-2 animate-slide-up flex flex-col bg-gradient-to-br from-card to-secondary/30 relative overflow-hidden h-full"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <Github className="w-4 h-4" />
-                    Code
-                  </a>
-                </Button>
-                <Button asChild variant="outline" size="sm" className="flex-1 border-primary/20 hover:bg-primary/10 hover:border-primary/40">
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Demo
-                  </a>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-card opacity-0 group-hover:opacity-100 transition-smooth pointer-events-none" />
+                    
+                    <CardHeader className="relative z-10">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
+                          <div className="w-6 h-6 bg-primary-foreground/90 rounded" />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-smooth">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
+                    </CardHeader>
+
+                    <CardContent className="flex-1 relative z-10">
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <Badge 
+                            key={tech} 
+                            variant="secondary" 
+                            className="bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 transition-smooth"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+
+                    <CardFooter className="gap-3 relative z-10">
+                      <Button asChild variant="accent" size="sm" className="flex-1 shadow-md hover:shadow-lg">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <Github className="w-4 h-4" />
+                          Code
+                        </a>
+                      </Button>
+                      <Button asChild variant="outline" size="sm" className="flex-1 border-border hover:bg-secondary hover:border-accent">
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Demo
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="bg-card border-border text-foreground hover:bg-secondary hover:text-accent" />
+            <CarouselNext className="bg-card border-border text-foreground hover:bg-secondary hover:text-accent" />
+          </Carousel>
         </div>
       </div>
     </section>

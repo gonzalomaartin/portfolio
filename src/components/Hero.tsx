@@ -9,21 +9,8 @@ export const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto animate-fade-in">
-          {/* Avatar - Left side */}
-          <div className="flex justify-center lg:justify-end order-2 lg:order-1">
-            <div className="relative group">
-              <div className="absolute -inset-4 border-l-2 border-t-2 border-border opacity-50" />
-              <div className="absolute -inset-4 border-r-2 border-b-2 border-border opacity-50" />
-              <img
-                src={profileAvatar}
-                alt="Profile"
-                className="relative w-72 h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem] object-cover transition-smooth"
-              />
-            </div>
-          </div>
-
-          {/* Name and Title - Right side */}
-          <div className="space-y-6 order-1 lg:order-2">
+          {/* Name and Title - Left side */}
+          <div className="space-y-6 order-2 lg:order-1">
             <div className="space-y-2">
               <p className="text-sm md:text-base text-muted-foreground tracking-wider">
                 Hi, I'm Your Name
@@ -31,7 +18,7 @@ export const Hero = () => {
               <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-tight">
                 COMPUTER<br />
                 SCIENCE<br />
-                <span className="italic">STUDENT</span>
+                <span className="italic font-light">STUDENT</span>
               </h1>
               <div className="flex items-center gap-4 pt-2">
                 <div className="w-12 h-0.5 bg-accent" />
@@ -67,6 +54,19 @@ export const Hero = () => {
                   <Github className="w-5 h-5" />
                 </a>
               </Button>
+            </div>
+          </div>
+
+          {/* Avatar - Right side */}
+          <div className="flex justify-center lg:justify-start order-1 lg:order-2">
+            <div className="relative group">
+              <div className="absolute -inset-4 border-l-2 border-t-2 border-border opacity-50" />
+              <div className="absolute -inset-4 border-r-2 border-b-2 border-border opacity-50" />
+              <img
+                src={profileAvatar}
+                alt="Profile"
+                className="relative w-72 h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem] object-cover transition-smooth"
+              />
             </div>
           </div>
         </div>
