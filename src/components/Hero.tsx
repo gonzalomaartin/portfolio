@@ -5,71 +5,76 @@ import profileAvatar from "@/assets/profile-avatar.jpg";
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-      >
-        <div className="absolute inset-0 gradient-hero" />
-      </div>
-
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
-          {/* Avatar */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-primary rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-smooth" />
-            <div className="absolute inset-0 bg-accent rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-smooth" />
-            <img
-              src={profileAvatar}
-              alt="Profile"
-              className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-primary/30 shadow-glow group-hover:scale-105 transition-smooth"
-            />
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto animate-fade-in">
+          {/* Avatar - Left side */}
+          <div className="flex justify-center lg:justify-end order-2 lg:order-1">
+            <div className="relative group">
+              <div className="absolute -inset-4 border-l-2 border-t-2 border-border opacity-50" />
+              <div className="absolute -inset-4 border-r-2 border-b-2 border-border opacity-50" />
+              <img
+                src={profileAvatar}
+                alt="Profile"
+                className="relative w-72 h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem] object-cover transition-smooth"
+              />
+            </div>
           </div>
 
-          {/* Name and Title */}
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground">
-              Your Name Here
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 font-light">
-              Computer Science Student | Software Developer
+          {/* Name and Title - Right side */}
+          <div className="space-y-6 order-1 lg:order-2">
+            <div className="space-y-2">
+              <p className="text-sm md:text-base text-muted-foreground tracking-wider">
+                Hi, I'm Your Name
+              </p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-tight">
+                COMPUTER<br />
+                SCIENCE<br />
+                <span className="italic">STUDENT</span>
+              </h1>
+              <div className="flex items-center gap-4 pt-2">
+                <div className="w-12 h-0.5 bg-accent" />
+                <p className="text-xs md:text-sm text-muted-foreground tracking-wider">
+                  SOFTWARE DEVELOPER
+                </p>
+              </div>
+            </div>
+
+            <p className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
+              I create immersive, high-performing software solutions tailored for startups, agencies, and teams that need speed, scalability, and full control.
             </p>
-            <p className="text-base md:text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-              Building innovative solutions through code. Passionate about creating elegant and efficient software.
-            </p>
-          </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild size="lg" variant="accent">
-              <a href="#contact">Get In Touch</a>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-              <a href="#projects">View Projects</a>
-            </Button>
-          </div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button asChild size="lg" variant="accent" className="text-base font-medium">
+                <a href="#contact">Get in touch</a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="text-base font-medium border-border text-foreground hover:bg-secondary">
+                <a href="#projects">See work</a>
+              </Button>
+            </div>
 
-          {/* Social Links */}
-          <div className="flex gap-4 pt-4">
-            <Button asChild size="icon" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button asChild size="icon" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="w-5 h-5" />
-              </a>
-            </Button>
+            {/* Social Links */}
+            <div className="flex gap-4 pt-6">
+              <Button asChild size="icon" variant="ghost" className="text-foreground hover:bg-secondary hover:text-accent">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </Button>
+              <Button asChild size="icon" variant="ghost" className="text-foreground hover:bg-secondary hover:text-accent">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <Github className="w-5 h-5" />
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <a href="#about">
-            <ArrowDown className="w-6 h-6 text-primary-foreground/60" />
+            <ArrowDown className="w-6 h-6 text-muted-foreground" />
           </a>
         </div>
       </div>
