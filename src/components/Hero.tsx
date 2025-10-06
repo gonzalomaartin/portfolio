@@ -54,13 +54,13 @@ export const Hero = () => {
           {/* Social Links */}
           <div className="flex gap-4 pt-4">
             <Button asChild size="icon" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="w-5 h-5" />
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin className="w-5 h-5" />
               </a>
             </Button>
             <Button asChild size="icon" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="w-5 h-5" />
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github className="w-5 h-5" />
               </a>
             </Button>
           </div>
