@@ -1,37 +1,51 @@
-import { GraduationCap, Award, Briefcase } from "lucide-react";
+import { GraduationCap, Award, Briefcase, Search } from "lucide-react";
 import { Card, CardContent, CardHeader } from "./ui/card";
+import { Badge } from "./ui/badge";
+import CDTMLogo from "@/assets/CDTM-logo.png";
+import UPVLogo from "@/assets/UPV-logo.png";
+import WinnerconLogo from "@/assets/winnercon-logo.jpg";
 
 const education = [
   {
     icon: GraduationCap,
-    title: "Bachelor of Science in Computer Science",
-    organization: "Your University Name",
-    period: "2020 - 2024",
-    description: "Relevant coursework: Data Structures, Algorithms, Database Systems, Web Development, Machine Learning, Software Engineering",
+    logo: CDTMLogo,
+    title: "Honours Degree in Digital Technology & Management",
+    organization: "Center for Digital Technology and Management (CDTM)",
+    period: "2025-2026",
+    description: "Selective interdisciplinary program for top-performing students, focused on developing skills in technology, innovation, and entrepreneurship through hands-on projects and collaboration with leading businesses.",
   },
   {
     icon: Award,
-    title: "Hackathon Winner",
-    organization: "University Tech Fest",
-    period: "2023",
-    description: "Led a team to build an innovative solution for sustainable campus living. Won first place among 50+ competing teams.",
+    logo: UPVLogo,
+    title: "BSc Industrial Computer Science & Robotics",
+    organization: "Valencia Polytechnic University (UPV)",
+    period: "2022-2026",
+    description: (
+      <>
+        Relevant coursework: Machine Learning, Computer Vision, 3D Vision, Mobile Robotics, Intelligent Agents, Data Structures & Algorithms.
+        <br />
+        Active participation in competitive programming contests and hackathons.
+      </>
+    ),
   },
 ];
 
 const experiences = [
   {
     icon: Briefcase,
-    title: "Software Development Intern",
-    organization: "Tech Company Name",
-    period: "Summer 2023",
-    description: "Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality features on schedule.",
+    title: "Seeking Software Engineering Internship",
+    organization: "Available Winter 2026",
+    period: "Looking for opportunities",
+    description: "Actively seeking internship opportunities with companies working on cutting-edge technologies in AI, machine learning, robotics, or software development. Eager to learn, grow, and contribute to innovative projects while applying my technical skills.",
+    available: true,
   },
   {
     icon: Briefcase,
-    title: "Research Assistant",
-    organization: "University CS Department",
-    period: "2022 - 2023",
-    description: "Assisted in research on machine learning applications in healthcare. Co-authored a paper published in a peer-reviewed conference.",
+    logo: WinnerconLogo,
+    title: "Systems Installer",
+    organization: "Winnercon",
+    period: "Jun 2023 - Jul 2023",
+    description: "Installed and configured digital display systems in educational environments. Conducted site assessments, performed hardware and software testing, and troubleshooting to ensure optimal performance of display units in classrooms and auditoriums.",
   },
 ];
 
@@ -47,7 +61,7 @@ export const Experience = () => {
             </h2>
             <div className="w-20 h-1 bg-accent mx-auto mb-6" />
             <p className="text-muted-foreground text-lg">
-              My academic journey and professional experiences
+              Academic background and professional development
             </p>
           </div>
 
@@ -67,8 +81,12 @@ export const Experience = () => {
                 >
                   <CardHeader>
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-accent/10 rounded-lg">
-                        <item.icon className="w-6 h-6 text-accent" />
+                      <div className="p-2 bg-accent/10 rounded-lg flex items-center justify-center w-16 h-16">
+                        {item.logo ? (
+                          <img src={item.logo} alt={`${item.organization} logo`} className="w-full h-full object-contain" />
+                        ) : (
+                          <item.icon className="w-6 h-6 text-accent" />
+                        )}
                       </div>
                       <div className="flex-1">
                         <h4 className="text-lg font-bold text-foreground mb-1">
@@ -106,13 +124,24 @@ export const Experience = () => {
                 >
                   <CardHeader>
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-accent/10 rounded-lg">
-                        <item.icon className="w-6 h-6 text-accent" />
+                      <div className="p-2 bg-accent/10 rounded-lg flex items-center justify-center w-16 h-16">
+                        {item.logo ? (
+                          <img src={item.logo} alt={`${item.organization} logo`} className="w-full h-full object-contain" />
+                        ) : (
+                          <item.icon className="w-6 h-6 text-accent" />
+                        )}
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-lg font-bold text-foreground mb-1">
-                          {item.title}
-                        </h4>
+                        <div className="flex items-center gap-2 mb-1">
+                          <h4 className="text-lg font-bold text-foreground">
+                            {item.title}
+                          </h4>
+                          {item.available && (
+                            <Badge className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold">
+                              Available
+                            </Badge>
+                          )}
+                        </div>
                         <p className="text-accent font-medium mb-1">
                           {item.organization}
                         </p>
@@ -137,7 +166,7 @@ export const Experience = () => {
             <a
               href="/resume.pdf"
               download
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-smooth shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-smooth shadow-lg transition-transform hover:scale-105"
             >
               <svg
                 className="w-5 h-5"

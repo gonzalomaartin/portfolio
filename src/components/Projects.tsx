@@ -9,35 +9,45 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-import ecommercePreview from "@/assets/project-ecommerce.jpg";
 import taskManagerPreview from "@/assets/project-taskmanager.jpg";
 import dashboardPreview from "@/assets/project-dashboard.jpg";
 import chatbotPreview from "@/assets/project-chatbot.jpg";
+import CRMPreview from "@/assets/project-crm.png";
+import CRMIcon from "@/assets/CRM-icon.png";
+import HouseIcon from "@/assets/house-icon.png";
+import TennisBallIcon from "@/assets/tennis-ball-icon.png";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce application with user authentication, product management, and payment integration. Built with modern web technologies for optimal performance.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    github: "https://github.com",
+    title: "CRM",
+    description: "A full-stack CRM application with user authentication, contact management, and sales tracking. Built with modern web technologies for optimal performance.",
+    technologies: ["Django", "PostgreSQL", "Tailwind CSS"],
+    github: "https://github.com/gonzalomaartin/CRM",
     demo: "https://demo.example.com",
-    preview: ecommercePreview,
+    preview: CRMPreview,
+    icon: CRMIcon,
   },
   {
-    title: "Task Management App",
-    description: "Collaborative task management tool with real-time updates, team workflows, and deadline tracking. Features intuitive drag-and-drop interface.",
-    technologies: ["TypeScript", "Next.js", "PostgreSQL", "Prisma"],
-    github: "https://github.com",
+    title: "Valencia Housing Price Predictor",
+    description: (
+      <>
+        Machine learning model leveraging web-scraped real estate data from Idealista to predict housing prices in Valencia with <span className="font-bold text-lg text-foreground">98.5%</span> accuracy.
+      </>
+    ),
+    technologies: ["Python", "Scikit-learn", "Pandas", "BeautifulSoup"],
+    github: "https://github.com/gonzalomaartin/Valencia-Housing-Price-Prediction",
     demo: "https://demo.example.com",
     preview: taskManagerPreview,
+    icon: HouseIcon,
   },
   {
-    title: "Data Visualization Dashboard",
-    description: "Interactive dashboard for analyzing complex datasets with charts, filters, and export capabilities. Helps teams make data-driven decisions.",
-    technologies: ["React", "D3.js", "Python", "FastAPI"],
+    title: "3D Vision Tracking for Multi-Robot Control",
+    description: "Real-time computer vision system combining YOLO object detection for tennis ball tracking with hand gesture recognition. The number of fingers shown on camera determines how many robots perform synchronized pick-and-place operations at the translated ball position in simulation.",
+    technologies: ["Python", "YOLO", "OpenCV", "MediaPipe", "RoboDK"],
     github: "https://github.com",
     demo: "https://demo.example.com",
     preview: dashboardPreview,
+    icon: TennisBallIcon, 
   },
   {
     title: "AI Chatbot",
@@ -66,7 +76,7 @@ export const Projects = () => {
           </h2>
           <div className="w-20 h-1.5 bg-gradient-primary mx-auto mb-6 rounded-full" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Explore some of my recent work showcasing various technologies and problem-solving approaches
+            Explore some of my recent projects that solve real-world problems with innovative solutions
           </p>
         </div>
 
@@ -94,7 +104,7 @@ export const Projects = () => {
                       <img
                         src={project.preview}
                         alt={`${project.title} preview`}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-smooth duration-500"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-smooth duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/40 to-transparent opacity-60" />
                     </div>
@@ -104,7 +114,11 @@ export const Projects = () => {
                       <div className="space-y-4 relative z-10">
                         <div className="flex items-start gap-3">
                           <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth flex-shrink-0">
-                            <div className="w-6 h-6 bg-primary-foreground/90 rounded" />
+                            {project.icon ? (
+                              <img src={project.icon} alt={`${project.title} icon`} className="w-full h-full object-contain rounded-xl" />
+                            ) : (
+                              <div className="w-6 h-6 bg-primary-foreground/90 rounded" />
+                            )}
                           </div>
                           <div>
                             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-accent transition-smooth">
@@ -135,7 +149,7 @@ export const Projects = () => {
                         </div>
 
                         <div className="flex gap-4">
-                          <Button asChild variant="accent" size="lg" className="flex-1 shadow-md hover:shadow-lg">
+                          <Button asChild variant="accent" size="lg" className="flex-1 shadow-md hover:shadow-lg transition-transform hover:scale-105">
                             <a
                               href={project.github}
                               target="_blank"
@@ -146,7 +160,7 @@ export const Projects = () => {
                               View Code
                             </a>
                           </Button>
-                          <Button asChild variant="outline" size="lg" className="flex-1 border-2 border-border hover:bg-secondary hover:border-accent">
+                          <Button asChild variant="outline" size="lg" className="flex-1 border-2 border-border hover:bg-secondary hover:border-accent transition-transform hover:scale-105">
                             <a
                               href={project.demo}
                               target="_blank"

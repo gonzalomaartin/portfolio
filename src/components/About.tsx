@@ -3,24 +3,24 @@ import { Card, CardContent } from "./ui/card";
 
 const skills = [
   {
+    icon: Zap,
+    title: "AI & Machine Learning",
+    description: "Machine Learning, Computer Vision, Data Science",
+  },
+  {
     icon: Code,
-    title: "Frontend Development",
-    description: "React, TypeScript, Tailwind CSS, Next.js",
+    title: "Problem Solving",
+    description: "Data Structures & Algorithms, System Design",
   },
   {
     icon: Database,
     title: "Backend Development",
-    description: "Node.js, Python, SQL, REST APIs",
+    description: "Python, Django, SQL, REST APIs",
   },
   {
     icon: Laptop,
-    title: "Tools & Platforms",
-    description: "Git, Docker, AWS, Linux",
-  },
-  {
-    icon: Zap,
-    title: "Problem Solving",
-    description: "Algorithms, Data Structures, System Design",
+    title: "Programming & Tools",
+    description: "C++, GitHub, Git, Linux",
   },
 ];
 
@@ -45,15 +45,15 @@ export const About = () => {
             <Card className="border-none shadow-lg">
               <CardContent className="p-8">
                 <p className="text-foreground leading-relaxed mb-4">
-                  I'm a passionate Computer Science student with a strong foundation in software development 
-                  and a keen interest in building innovative solutions. My journey in tech began with a curiosity 
-                  about how things work, which evolved into a deep love for creating elegant and efficient code.
+                  I'm a Computer Science & Robotics student with a passion for solving complex problems 
+                  through cutting-edge technologies. My interests lie at the intersection of AI, machine learning, 
+                  autonomous systems and software development, where I develop intelligent solutions to tackle real-world challenges.
                 </p>
                 <p className="text-foreground leading-relaxed">
-                  Throughout my studies, I've worked on various projects ranging from web applications to 
-                  data-driven solutions. I'm constantly learning new technologies and best practices to stay 
-                  current in this ever-evolving field. My goal is to leverage my skills to solve real-world 
-                  problems and contribute to meaningful projects.
+                  With a strong focus on continuous learning and innovation, I'm constantly exploring new technologies 
+                  and methodologies across various domains. I thrive on tackling challenging problems that push 
+                  the boundaries of what's possible, whether it's developing intelligent algorithms, building 
+                  scalable systems, or creating solutions that make a meaningful impact.
                 </p>
               </CardContent>
             </Card>

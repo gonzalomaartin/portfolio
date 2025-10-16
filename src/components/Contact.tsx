@@ -18,47 +18,47 @@ export const Contact = () => {
           </div>
 
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {/* LinkedIn Card */}
             <Card className="group border-border shadow-lg hover:shadow-accent transition-smooth hover:-translate-y-2 bg-gradient-to-br from-card to-secondary/30 animate-slide-up">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-primary flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
-                  <Linkedin className="w-8 h-8 text-primary-foreground" />
+              <CardHeader className="text-center pb-6 pt-8">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-[#0A66C2] flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
+                  <Linkedin className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">
+                <h3 className="text-xl font-semibold text-foreground">
                   LinkedIn
                 </h3>
               </CardHeader>
-              <CardContent className="text-center">
+              <CardContent className="text-center pb-8">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/gonzalo-martin-penalba"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-smooth font-medium"
                 >
-                  linkedin.com/in/yourname
+                  linkedin.com/in/gonzalo-martin-penalba
                 </a>
               </CardContent>
             </Card>
 
             {/* GitHub Card */}
             <Card className="group border-border shadow-lg hover:shadow-accent transition-smooth hover:-translate-y-2 bg-gradient-to-br from-card to-secondary/30 animate-slide-up" style={{ animationDelay: "100ms" }}>
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-primary flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
-                  <Github className="w-8 h-8 text-primary-foreground" />
+              <CardHeader className="text-center pb-6 pt-8">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-[#181717] flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
+                  <Github className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">
+                <h3 className="text-xl font-semibold text-foreground">
                   GitHub
                 </h3>
               </CardHeader>
-              <CardContent className="text-center">
+              <CardContent className="text-center pb-8">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/gonzalomaartin"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-smooth font-medium"
                 >
-                  github.com/yourusername
+                  github.com/gonzalomaartin
                 </a>
               </CardContent>
             </Card>
