@@ -1,7 +1,7 @@
 import { GraduationCap, Award, Briefcase, Search } from "lucide-react";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { Badge } from "./ui/badge";
-import CDTMLogo from "@/assets/CDTM-logo.png";
+import CDTMLogo from "@/assets/cdtm-logo.png";
 import UPVLogo from "@/assets/UPV-logo.png";
 import WinnerconLogo from "@/assets/winnercon-logo.jpg";
 
