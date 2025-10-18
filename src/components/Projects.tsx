@@ -19,13 +19,14 @@ import TennisBallIcon from "@/assets/tennis-ball-icon.png";
 
 const projects = [
   {
-    title: "CRM",
+    title: "CRM Pro",
     description: "A full-stack CRM application with user authentication, contact management, and sales tracking. Built with modern web technologies for optimal performance.",
-    technologies: ["Django", "PostgreSQL", "Tailwind CSS"],
+    technologies: ["Python", "Django", "PostgreSQL", "Tailwind CSS"],
     github: "https://github.com/gonzalomaartin/CRM",
-    demo: "https://demo.example.com",
+    demo: "https://crmpro.gonzalomartin.dev",
     preview: CRMPreview,
     icon: CRMIcon,
+    slowLoad: true,
   },
   {
     title: "Valencia Housing Price Predictor",
@@ -36,9 +37,10 @@ const projects = [
     ),
     technologies: ["Python", "Scikit-learn", "Pandas", "BeautifulSoup"],
     github: "https://github.com/gonzalomaartin/Valencia-Housing-Price-Prediction",
-    demo: "https://demo.example.com",
+    demo: "https://crmpro.gonzalomartin.dev",
     preview: taskManagerPreview,
     icon: HouseIcon,
+    slowLoad: true,
   },
   {
     title: "3D Vision Tracking for Multi-Robot Control",
@@ -100,14 +102,19 @@ export const Projects = () => {
                     <div className="absolute inset-0 bg-gradient-card opacity-0 group-hover:opacity-100 transition-smooth pointer-events-none" />
                     
                     {/* Project Preview Image */}
-                    <div className="relative w-full h-80 md:h-96 overflow-hidden bg-muted">
+                    <a 
+                      href={project.demo} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="relative w-full h-80 md:h-96 overflow-hidden bg-muted block cursor-pointer"
+                    >
                       <img
                         src={project.preview}
                         alt={`${project.title} preview`}
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-smooth duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/40 to-transparent opacity-60" />
-                    </div>
+                    </a>
 
                     <div className="grid md:grid-cols-2 gap-6 p-8">
                       {/* Left column - Description */}
@@ -124,6 +131,11 @@ export const Projects = () => {
                             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-accent transition-smooth">
                               {project.title}
                             </h3>
+                            {project.slowLoad && (
+                              <p className="text-sm text-muted-foreground/80 italic mb-2">
+                                ⏱️ Demo may take a moment to load
+                              </p>
+                            )}
                             <p className="text-muted-foreground leading-relaxed">
                               {project.description}
                             </p>

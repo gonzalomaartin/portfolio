@@ -8,9 +8,6 @@ export const Footer = () => {
           <p className="text-sm">
             © {currentYear} Gonzalo Martin. All rights reserved.
           </p>
-          <p className="text-xs text-primary-foreground/70">
-            Built with React, TypeScript, and Tailwind CSS
-          </p>
         </div>
       </div>
     </footer>

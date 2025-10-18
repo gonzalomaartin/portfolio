@@ -65,7 +65,7 @@ export const Hero = () => {
               <img
                 src={profileAvatar}
                 alt="Profile"
-                className="relative w-72 h-96 md:w-80 md:h-[28rem] object-cover transition-smooth"
+                className="relative w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[28rem] lg:w-[22rem] lg:h-[30rem] object-cover transition-smooth"
               />
             </div>
           </div>
