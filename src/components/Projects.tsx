@@ -16,6 +16,7 @@ import CRMPreview from "@/assets/project-crm.png";
 import CRMIcon from "@/assets/CRM-icon.png";
 import HouseIcon from "@/assets/house-icon.png";
 import TennisBallIcon from "@/assets/tennis-ball-icon.png";
+import RobotArmIcon from "@/assets/robot-arm-icon.png";
 
 const projects = [
   {
@@ -49,7 +50,7 @@ const projects = [
     github: "https://github.com",
     demo: "https://demo.example.com",
     preview: dashboardPreview,
-    icon: TennisBallIcon, 
+    icon: RobotArmIcon, 
   },
   {
     title: "AI Chatbot",
