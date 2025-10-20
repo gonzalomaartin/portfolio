@@ -47,7 +47,7 @@ const projects = [
     title: "3D Vision Tracking for Multi-Robot Control",
     description: "Real-time computer vision system combining YOLO object detection for tennis ball tracking with hand gesture recognition. The number of fingers shown on camera determines how many robots perform synchronized pick-and-place operations at the translated ball position in simulation.",
     technologies: ["Python", "YOLO", "OpenCV", "MediaPipe", "RoboDK"],
-    github: "https://github.com",
+    github: "https://github.com/gonzalomaartin/3D-Tracking-for-Multi-Robot-Control",
     demo: "https://demo.example.com",
     preview: dashboardPreview,
     icon: RobotArmIcon, 
