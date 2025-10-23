@@ -1,22 +1,18 @@
-import { ExternalLink, Github } from "lucide-react";
+import React from "react";
+import { ExternalLink, Github, X as CloseIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Badge } from "./ui/badge";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "./ui/carousel";
-import taskManagerPreview from "@/assets/project-taskmanager.jpg";
-import dashboardPreview from "@/assets/project-dashboard.jpg";
-import chatbotPreview from "@/assets/project-chatbot.jpg";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "./ui/carousel";
+import Vision3DVideo from "@/assets/Vision3D Video Final.mp4";
 import CRMPreview from "@/assets/project-crm.png";
 import CRMIcon from "@/assets/CRM-icon.png";
-import HouseIcon from "@/assets/house-icon.png";
-import TennisBallIcon from "@/assets/tennis-ball-icon.png";
+import Vision3DPreview from "@/assets/3DVisionPreview.png";
 import RobotArmIcon from "@/assets/robot-arm-icon.png";
+import HousePredictorPreview from "@/assets/vlc-house-predictor-img.png";
+import HouseIcon from "@/assets/house-icon.png";
+import AITennisPreview from "@/assets/tennis-match.avif";
+import TennisBallIcon from "@/assets/tennis-ball-icon.png";
 
 const projects = [
   {
@@ -31,15 +27,11 @@ const projects = [
   },
   {
     title: "Valencia Housing Price Predictor",
-    description: (
-      <>
-        Machine learning model leveraging web-scraped real estate data from Idealista to predict housing prices in Valencia with <span className="font-bold text-lg text-foreground">98.5%</span> accuracy.
-      </>
-    ),
+    description: "Machine learning model leveraging web-scraped real estate data from Idealista to predict housing prices in Valencia with 75% accuracy.",
     technologies: ["Python", "Scikit-learn", "Pandas", "BeautifulSoup"],
     github: "https://github.com/gonzalomaartin/Valencia-Housing-Price-Prediction",
-    demo: "https://crmpro.gonzalomartin.dev",
-    preview: taskManagerPreview,
+    demo: "https://vlc-house-predictor.gonzalomartin.dev/",
+    preview: HousePredictorPreview,
     icon: HouseIcon,
     slowLoad: true,
   },
@@ -48,21 +40,32 @@ const projects = [
     description: "Real-time computer vision system combining YOLO object detection for tennis ball tracking with hand gesture recognition. The number of fingers shown on camera determines how many robots perform synchronized pick-and-place operations at the translated ball position in simulation.",
     technologies: ["Python", "YOLO", "OpenCV", "MediaPipe", "RoboDK"],
     github: "https://github.com/gonzalomaartin/3D-Tracking-for-Multi-Robot-Control",
-    demo: "https://demo.example.com",
-    preview: dashboardPreview,
-    icon: RobotArmIcon, 
+    demo: Vision3DVideo,
+    preview: Vision3DPreview,
+    icon: RobotArmIcon,
   },
   {
-    title: "AI Chatbot",
-    description: "Intelligent chatbot using natural language processing to provide automated customer support. Integrates with multiple platforms and APIs.",
-    technologies: ["Python", "TensorFlow", "Flask", "OpenAI"],
-    github: "https://github.com",
-    demo: "https://demo.example.com",
-    preview: chatbotPreview,
-  },
+    title: "AI Tennis Judge",
+    description: "Computer vision application that determines whether a tennis ball landed in or out by accurately tracking the ball's trajectory and bounce. It also provides player statistics, heatmaps, average ball speed calculations, and match summaries — designed for real-time analysis and coaching insights.",
+    technologies: ["Python", "OpenCV", "YOLO", "PyTorch"],
+    github: "https://github.com/gonzalomaartin/AI-Tennis-Judge",
+    demo: "https://ai-tennis-judge.gonzalomartin.dev",
+    preview: AITennisPreview,
+    icon: TennisBallIcon,
+    slowLoad: true,
+    comingSoon: true,
+  }
 ];
 
 export const Projects = () => {
+  const [videoOpen, setVideoOpen] = React.useState(false);
+  const handleOpenVideo = (project) => {
+    if (project.title === "3D Vision Tracking for Multi-Robot Control") {
+      setVideoOpen(true);
+    }
+  };
+  const handleCloseVideo = () => setVideoOpen(false);
+
   return (
     <section id="projects" className="py-20 bg-background relative overflow-hidden">
       {/* Decorative background elements */}
@@ -103,19 +106,50 @@ export const Projects = () => {
                     <div className="absolute inset-0 bg-gradient-card opacity-0 group-hover:opacity-100 transition-smooth pointer-events-none" />
                     
                     {/* Project Preview Image */}
-                    <a 
-                      href={project.demo} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="relative w-full h-80 md:h-96 overflow-hidden bg-muted block cursor-pointer"
-                    >
-                      <img
-                        src={project.preview}
-                        alt={`${project.title} preview`}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-smooth duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/40 to-transparent opacity-60" />
-                    </a>
+                    {project.comingSoon ? (
+                      <div className="relative w-full h-80 md:h-96 overflow-hidden bg-muted block cursor-default">
+                        {/* Diagonal ribbon */}
+                        <div className="absolute -top-4 left-4 z-30 transform -rotate-12">
+                          <div className="bg-amber-300 text-amber-900 px-3 py-1 font-semibold text-xs shadow-md">IN DEVELOPMENT</div>
+                        </div>
+                        <img
+                          src={project.preview}
+                          alt={`${project.title} preview`}
+                          className="w-full h-full object-cover object-center filter grayscale brightness-60 transition-smooth duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gray-200/30" />
+                        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-4">
+                          <span className="text-2xl md:text-4xl font-extrabold text-gray-900 uppercase tracking-wider bg-gray-100/85 px-4 py-2 rounded animate-pulse">COMING SOON</span>
+                        </div>
+                      </div>
+                    ) : project.title === "3D Vision Tracking for Multi-Robot Control" ? (
+                      <div className="relative w-full h-80 md:h-96 overflow-hidden bg-muted block">
+                        <video
+                          src={project.demo}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover object-center rounded"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/40 to-transparent opacity-60 pointer-events-none" />
+                      </div>
+                    ) : (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative w-full h-80 md:h-96 overflow-hidden bg-muted block cursor-pointer"
+                      >
+                        <img
+                          src={project.preview}
+                          alt={`${project.title} preview`}
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-smooth duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/40 to-transparent opacity-60" />
+                      </a>
+                    )}
+
 
                     <div className="grid md:grid-cols-2 gap-6 p-8">
                       {/* Left column - Description */}
@@ -129,9 +163,14 @@ export const Projects = () => {
                             )}
                           </div>
                           <div>
-                            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-accent transition-smooth">
-                              {project.title}
-                            </h3>
+                            <div className="flex items-center gap-3">
+                              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-accent transition-smooth">
+                                {project.title}
+                              </h3>
+                              {project.comingSoon && (
+                                <Badge className="ml-2 bg-yellow-100 text-yellow-800 border-yellow-200">Coming Soon</Badge>
+                              )}
+                            </div>
                             {project.slowLoad && (
                               <p className="text-sm text-muted-foreground/80 italic mb-2">
                                 ⏱️ Demo may take a moment to load
@@ -162,28 +201,56 @@ export const Projects = () => {
                         </div>
 
                         <div className="flex gap-4">
-                          <Button asChild variant="accent" size="lg" className="flex-1 shadow-md hover:shadow-lg transition-transform hover:scale-105">
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-2"
-                            >
-                              <Github className="w-5 h-5" />
-                              View Code
-                            </a>
-                          </Button>
-                          <Button asChild variant="outline" size="lg" className="flex-1 border-2 border-border hover:bg-secondary hover:border-accent transition-transform hover:scale-105">
-                            <a
-                              href={project.demo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-2"
-                            >
-                              <ExternalLink className="w-5 h-5" />
-                              Live Demo
-                            </a>
-                          </Button>
+                          {project.comingSoon ? (
+                            <>
+                              <div className="flex-1">
+                                <span className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 rounded text-sm font-medium bg-muted text-muted-foreground border border-border cursor-not-allowed opacity-80">
+                                  <Github className="w-5 h-5" />
+                                  View Code
+                                </span>
+                              </div>
+                              <div className="flex-1">
+                                <span className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 rounded text-sm font-medium bg-muted text-muted-foreground border border-border cursor-not-allowed opacity-80">
+                                  <ExternalLink className="w-5 h-5" />
+                                  Live Demo
+                                </span>
+                              </div>
+                            </>
+                          ) : (
+                            <>
+                              <Button asChild variant="accent" size="lg" className="flex-1 shadow-md hover:shadow-lg transition-transform hover:scale-105">
+                                <a
+                                  href={project.github}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center justify-center gap-2"
+                                >
+                                  <Github className="w-5 h-5" />
+                                  View Code
+                                </a>
+                              </Button>
+                              {project.title === "3D Vision Tracking for Multi-Robot Control" ? (
+                                <Button disabled variant="outline" size="lg" className="flex-1 border-2 border-border opacity-60 cursor-not-allowed">
+                                  <span className="flex items-center justify-center gap-2">
+                                    <ExternalLink className="w-5 h-5" />
+                                    Live Demo
+                                  </span>
+                                </Button>
+                              ) : (
+                                <Button asChild variant="outline" size="lg" className="flex-1 border-2 border-border hover:bg-secondary hover:border-accent transition-transform hover:scale-105">
+                                  <a
+                                    href={project.demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2"
+                                  >
+                                    <ExternalLink className="w-5 h-5" />
+                                    Live Demo
+                                  </a>
+                                </Button>
+                              )}
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -198,4 +265,5 @@ export const Projects = () => {
       </div>
     </section>
   );
-};
+// ...existing code...
+}
