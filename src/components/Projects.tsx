@@ -13,6 +13,8 @@ import HousePredictorPreview from "@/assets/vlc-house-predictor-img.png";
 import HouseIcon from "@/assets/house-icon.png";
 import AITennisPreview from "@/assets/tennis-match.avif";
 import TennisBallIcon from "@/assets/tennis-ball-icon.png";
+import ShoppingCartIcon from "@/assets/shopping-cart-icon.png";
+import AIProdRecommenderPreview from "@/assets/ai-prod-recommender.png";
 
 const projects = [
   {
@@ -37,7 +39,7 @@ const projects = [
   },
   {
     title: "3D Vision Tracking for Multi-Robot Control",
-    description: "Real-time computer vision system combining YOLO object detection for tennis ball tracking with hand gesture recognition. The number of fingers shown on camera determines how many robots perform synchronized pick-and-place operations at the translated ball position in simulation.",
+    description: "Real-time computer vision system combining YOLO object detection for tennis ball tracking with hand gesture recognition. The number of fingers shown on camera determines how many robots perform synchronized move operations at the translated ball position in simulation.",
     technologies: ["Python", "YOLO", "OpenCV", "MediaPipe", "RoboDK"],
     github: "https://github.com/gonzalomaartin/3D-Tracking-for-Multi-Robot-Control",
     demo: Vision3DVideo,
@@ -53,7 +55,16 @@ const projects = [
     preview: AITennisPreview,
     icon: TennisBallIcon,
     slowLoad: true,
-    comingSoon: true,
+  }, 
+    {
+    title: "AI-Powered Product Recommendation System",
+    description: "Scraped data from Mercadona asynchronously and used an LLM and a VLM for text and image-based normalization (e.g., brand, allergens, claims, nutritional info). Developed an agentic system that responds to user queries based on the processed data, leveraging a dual-database architecture with a relational database for fast filtered lookups and a vector database for semantic search.",
+    technologies: ["Python", "Langchain", "ChromaDB", "Playwright"],
+    github: "https://github.com/gonzalomaartin/AI-Product-Recommender",
+    demo: "https://www.gonzalomartin.dev",
+    preview: AIProdRecommenderPreview,
+    icon: ShoppingCartIcon, 
+    slowLoad: true,
   }
 ];
 
@@ -201,7 +212,7 @@ export const Projects = () => {
                         </div>
 
                         <div className="flex gap-4">
-                          {project.comingSoon ? (
+                          {project.comingSoon || project.title === "AI Tennis Judge" ? (
                             <>
                               <div className="flex-1">
                                 <span className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 rounded text-sm font-medium bg-muted text-muted-foreground border border-border cursor-not-allowed opacity-80">
@@ -265,5 +276,4 @@ export const Projects = () => {
       </div>
     </section>
   );
-// ...existing code...
-}
+};
