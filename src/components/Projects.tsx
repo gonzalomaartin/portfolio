@@ -59,7 +59,7 @@ const projects = [
     {
     title: "AI-Powered Product Recommendation System",
     description: "Scraped data from Mercadona asynchronously and used an LLM and a VLM for text and image-based normalization (e.g., brand, allergens, claims, nutritional info). Developed an agentic system that responds to user queries based on the processed data, leveraging a dual-database architecture with a relational database for fast filtered lookups and a vector database for semantic search.",
-    technologies: ["Python", "Langchain", "ChromaDB", "Playwright"],
+    technologies: ["Python", "Langchain", "ChromaDB", "PostgreSQL", "Playwright"],
     github: "https://github.com/gonzalomaartin/AI-Product-Recommender",
     demo: "https://www.gonzalomartin.dev",
     preview: AIProdRecommenderPreview,
