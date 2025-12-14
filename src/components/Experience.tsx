@@ -37,10 +37,14 @@ const experiences = [
 	{
 		icon: Briefcase,
 		title: "Data Science Intern",
-		organization: "Ford Motor Company",
+      organization: "Ford Motor Company",
 		period: "Dec 2025 - June 2026",
-		description:
-			"Developed scalable data pipelines and analytics solutions on Google Cloud (BigQuery, Dataform, Vertex AI, Looker Studio) to monitor manufacturing quality and enable real-time root-cause analysis.\nBuilt and deployed predictive machine learning models in Python to estimate component failure probability, supporting preventive actions to reduce scrap, warranty claims, and production downtime.",
+    		description: (
+			<>
+				Developed scalable data pipelines and analytics solutions on Google Cloud (BigQuery, Dataform, Looker Studio) to monitor manufacturing quality and enable real-time root-cause analysis.
+				<br /> <br/>
+        Built and deployed predictive machine learning models in Python to estimate component failure probability, supporting preventive actions to reduce scrap, warranty claims, and production downtime.			</>
+		),
 		logo: FordLogo,
 	},
 	{
